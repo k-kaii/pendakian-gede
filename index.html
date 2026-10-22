@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pendakian Tektok Gunung Gede</title>
+<style>
+:root{color-scheme:dark;--bg:#0f1f1b;--card:#16302a;--card2:#1c3b33;--line:#2e5246;--tx:#f4efe6;--mut:#a9bdb4;--or:#f59e0b;--or2:#ff7a1a;--ok:#34d399;--bad:#f87171;--warn:#fbbf24}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:Impact,"Arial Narrow Bold",system-ui,sans-serif;letter-spacing:.5px;margin:0;line-height:1.1}
+a{color:var(--or)}.wrap{max-width:1050px;margin:auto;padding:0 18px}
+nav{position:sticky;top:0;z-index:5;background:#0f1f1bee;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px;align-items:center;overflow-x:auto;padding:10px 18px}
+nav b{color:var(--or);margin-right:auto;white-space:nowrap}
+nav a{color:var(--tx);text-decoration:none;padding:6px 12px;border-radius:99px;font-size:14px;white-space:nowrap}
+.hero{text-align:center;padding:46px 0 34px;background:radial-gradient(ellipse at 50% 100%,#ff7a1a55,transparent 65%)}
+.hero small{letter-spacing:3px;color:var(--mut)}
+.hero h1{font-size:clamp(34px,8vw,68px);color:var(--or);margin-top:10px}
+.hero h2{font-size:clamp(46px,13vw,120px);background:linear-gradient(#fff,#ffb36b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:22px;font-weight:700;margin:6px 0 22px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 20px}
+.chip span{display:block;color:var(--mut);font-size:12px;letter-spacing:2px}.chip b{font-size:22px;color:var(--or)}
+.btn{display:inline-block;border:0;cursor:pointer;background:linear-gradient(135deg,var(--or),var(--or2));color:#1a1206;font-weight:700;padding:11px 20px;border-radius:10px;font-size:15px;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--tx);border:1px solid var(--line)}.btn.sm{padding:6px 10px;font-size:13px}
+section{padding:34px 0}section>.wrap>h2{font-size:34px;margin-bottom:6px;color:var(--or)}
+.sub{color:var(--mut);margin:0 0 18px}
+.grid{display:grid;gap:14px}.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.stat b{display:block;font-size:26px;color:var(--or)}.stat span{color:var(--mut);font-size:14px}
+.bar{height:9px;background:#0b1714;border-radius:9px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--or),var(--ok));width:0;transition:width .5s}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.tools input{flex:1;min-width:180px}
+input,select{background:#0b1714;color:var(--tx);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;width:100%}
+label{font-size:13px;color:var(--mut);display:block;margin:10px 0 4px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:16px;margin-bottom:18px}
+table{width:100%;border-collapse:collapse;min-width:640px;background:var(--card)}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);font-size:14px}
+th{background:var(--card2);color:var(--mut);font-size:12px;letter-spacing:1px;text-transform:uppercase}tr:last-child td{border:0}
+.tag{padding:3px 10px;border-radius:99px;font-size:12px;font-weight:700}
+.t-ok{background:#34d39922;color:var(--ok)}.t-part{background:#fbbf2422;color:var(--warn)}.t-no{background:#f8717122;color:var(--bad)}
+.pm{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.pm button{background:var(--card2);color:var(--tx);border:2px solid var(--line);border-radius:12px;padding:14px 8px;font:inherit;font-weight:700;cursor:pointer}
+.pm button.on{border-color:var(--or);background:#f59e0b1f}.pm small{display:block;font-weight:400;color:var(--mut)}
+.pay{text-align:center}.pay img{max-width:230px;width:100%;border-radius:12px;background:#fff;padding:8px}
+.acc{font:700 24px/1.2 ui-monospace,Menlo,monospace;color:var(--or);margin:8px 0;word-break:break-all}
+ol{padding-left:20px;color:var(--mut);text-align:left}
+.collab .card{text-align:center}
+.logo{width:84px;height:84px;border-radius:50%;margin:0 auto 12px;display:grid;place-items:center;font:700 28px Impact,system-ui,sans-serif;color:#1a1206;background:linear-gradient(135deg,var(--or),var(--or2));border:3px solid var(--line)}
+.banner{background:#f8717122;border:1px solid var(--bad);color:var(--tx);padding:12px 16px;border-radius:12px;margin-bottom:16px;display:none}
+.adm{display:none}body.isadmin .adm{display:block}body.isadmin .adm.tw{display:block}
+dialog{background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:16px;padding:22px;width:min(380px,92vw)}
+dialog::backdrop{background:#000a}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(90px);background:var(--ok);color:#06251a;padding:11px 18px;border-radius:10px;font-weight:700;transition:.3s;z-index:9}
+.toast.show{transform:translateX(-50%)}.toast.err{background:var(--bad);color:#2a0606}
+footer{text-align:center;color:var(--mut);padding:30px 18px 50px;border-top:1px solid var(--line);font-size:14px}
+.collab-img {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    padding: 6px;
+    margin: 0 auto 12px;
+    display: block;
+}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>⛰ GEDE TEKTOK</b><a href="#info">Info</a><a href="#kolaborator">Kolaborator</a><a href="#peserta">Peserta</a><a href="#bayar">Pembayaran</a><a href="#" id="loginLink">Login Admin</a></div></nav>
+
+<header class="hero"><div class="wrap">
+<small>KOLABORASI · BASECAMP MAK IHAT × KKAIIISPN_ × COLLECTIF MOUNTAIN</small>
+<h1>PENDAKIAN TEKTOK</h1><h2>GUNUNG GEDE</h2><p>2.958 MDPL</p>
+<div class="chips"><div class="chip"><span>TANGGAL</span><b>27 – 28 November</b></div><div class="chip"><span>BIAYA</span><b id="hPrice"></b></div><div class="chip"><span>DOORPRIZE</span><b>Outfit Outdoor</b></div></div>
+<p style="margin-top:26px"><a class="btn" href="#bayar">Daftar &amp; Bayar</a></p>
+</div></header>
+
+<section id="info"><div class="wrap"><h2>Info Pendakian</h2><p class="sub">Biaya sudah termasuk:</p>
+<div class="grid g4">
+<div class="card"><h3>🔑 Gantungan Kunci</h3></div><div class="card"><h3>📸 Dokumentasi</h3></div>
+<div class="card"><h3>🍳 Alat Masak</h3></div><div class="card"><h3>🎁 Doorprize</h3><p class="sub" style="margin:6px 0 0">Outfit outdoor dari Collectif Mountain &amp; Basecamp Mak Ihat.</p></div>
+</div></div></section>
+
+<section id="kolaborator" class="collab"><div class="wrap"><h2>Kolaborator</h2><p class="sub">Hasil kolaborasi tiga komunitas.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+<div class="card">
+    <img class="collab-img" src="bc.jpeg" alt="Basecamp Mak Ihat">
+    <h3>Basecamp Mak Ihat</h3>
+</div>
+
+<div class="card">
+    <img class="collab-img" src="kai.jpeg" alt="kkaiiispn_">
+    <h3>kkaiiispn_</h3>
+    <p style="margin:8px 0 0">
+        <a href="https://instagram.com/kkaiiispn_"
+           target="_blank" rel="noopener">@kkaiiispn_</a>
+    </p>
+</div>
+
+<div class="card">
+    <img class="collab-img" src="cm.jpeg" alt="Collectif Mountain">
+    <h3>Collectif Mountain</h3>
+</div>
+</div></div></section>
+
+<section id="peserta"><div class="wrap">
+<h2>Daftar Peserta &amp; Uang Masuk</h2><p class="sub">Hanya pembayaran yang sudah dikonfirmasi admin yang dihitung.</p>
+<div class="banner" id="cfgWarn">Supabase belum dikonfigurasi. Isi <b>URL</b> dan <b>KEY</b> di bagian CFG pada file ini.</div>
+<div class="grid g4" style="margin-bottom:18px">
+<div class="card stat"><b id="sN">0</b><span>Total peserta</span></div>
+<div class="card stat"><b id="sIn">Rp 0</b><span>Uang masuk</span></div>
+<div class="card stat"><b id="sOut">Rp 0</b><span>Belum dibayar</span></div>
+<div class="card stat"><b id="sPct">0%</b><span>Terkumpul<div class="bar"><i id="sBar"></i></div></span></div>
+</div>
+<div class="tools"><input id="q" placeholder="Cari nama peserta…"><button class="btn" id="regBtn">+ Daftar Peserta</button><button class="btn ghost adm" id="outBtn">Keluar (admin)</button></div>
+<div class="tw"><table><thead><tr><th>#</th><th>Nama</th><th class="adm">WhatsApp</th><th>Sudah Bayar</th><th>Sisa</th><th>Status</th><th class="adm">Aksi</th></tr></thead><tbody id="tb"></tbody></table></div>
+
+<div class="adm"><h3 style="font-size:24px;color:var(--or);margin-bottom:10px">Kelola Pembayaran (Admin)</h3>
+<div class="tw"><table><thead><tr><th>Tanggal</th><th>Peserta</th><th>Nominal</th><th>Metode</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="pb"></tbody></table></div></div>
+</div></section>
+
+<section id="bayar"><div class="wrap"><h2>Pembayaran</h2><p class="sub">Pilih metode, bayar sesuai nominal, lalu kirim konfirmasi. Admin akan memverifikasi.</p>
+<div class="grid g2">
+<div class="card"><div class="pm" id="pm"></div><div class="pay" id="payBox" style="margin-top:18px"></div></div>
+<div class="card"><h3 style="font-size:22px">Konfirmasi Pembayaran</h3>
+<label>Nama peserta (daftar dulu bila belum ada)</label><select id="fP"></select>
+<label>Nominal (Rp)</label><input id="fA" type="number" min="1000" step="1000">
+<label>Metode</label><input id="fM" readonly>
+<p style="margin:16px 0 0"><button class="btn" id="fS">Kirim Konfirmasi</button></p>
+<p class="sub" style="font-size:13px;margin-top:12px">Setelah dikirim, kirim juga bukti transfer lewat WhatsApp panitia.</p></div>
+</div></div></section>
+<footer>© 2026 Pendakian Tektok Gunung Gede · Basecamp Mak Ihat × kkaiiispn_ × Collectif Mountain · <a href="https://wa.me/6287735332679" target="_blank" rel="noopener">WhatsApp</a></footer>
+
+<dialog id="dlg"><h3 style="font-size:24px;color:var(--or)">Login Admin</h3>
+<label>Email</label><input id="em" type="email" autocomplete="username">
+<label>Password</label><input id="pw" type="password" autocomplete="current-password">
+<p style="margin:16px 0 0;display:flex;gap:8px"><button class="btn" id="goLogin">Masuk</button><button class="btn ghost" id="cancelLogin">Batal</button></p></dialog>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+// ===== KONFIGURASI =====
+const CFG={
+  URL:"https://dvpjlgjwvudpqqottkoj.supabase.co/rest/v1/",   // Project Settings > API > Project URL
+  KEY:"sb_publishable_OgKK2cjt5I2MpvFPAGT_Tw_Or0klnFe",                       // anon public key (BUKAN service_role)
+  price:110000, wa:"6287735332679",
+  methods:{
+    QRIS:{ico:"▦",note:"Semua e-wallet & m-banking",qr:true},
+    DANA:{ico:"💙",note:"Transfer DANA",no:"0877-3533-2679",an:"Muhamad Raka Sopian Al Hidayah"},
+    GoPay:{ico:"💚",note:"Transfer GoPay",no:"0877-3533-2679",an:"Muhamad Raka Sopian Al Hidayah"},
+    SeaBank:{ico:"🧡",note:"Transfer SeaBank",no:"9019 9879 3199",an:"H Acep Muhiban"}
+  }
+};
+const $=s=>document.querySelector(s);
+const rp=n=>"Rp "+Number(n).toLocaleString("id-ID");
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function toast(t,err){const e=$("#toast");e.textContent=t;e.className="toast show"+(err?" err":"");setTimeout(()=>e.classList.remove("show"),2600)}
+const configured=!CFG.URL.includes("YOUR-PROJECT");
+const sb=configured?supabase.createClient(CFG.URL,CFG.KEY):null;
+let admin=false,people=[],pays=[],method="QRIS";
+
+async function load(){
+  if(!sb){$("#cfgWarn").style.display="block";render();return}
+  const {data:{session}}=await sb.auth.getSession();admin=!!session;
+  document.body.classList.toggle("isadmin",admin);
+  $("#loginLink").textContent=admin?"Admin ✓":"Login Admin";
+  if(admin){
+    const [a,b]=await Promise.all([sb.from("participants").select("*").order("created_at"),sb.from("payments").select("*").order("created_at",{ascending:false})]);
+    if(a.error||b.error)toast("Gagal memuat data",1);
+    pays=b.data||[];
+    people=(a.data||[]).map(p=>({...p,paid:pays.filter(y=>y.participant_id==p.id&&y.status=="confirmed").reduce((s,y)=>s+y.amount,0)}));
+  }else{
+    const a=await sb.from("participant_totals").select("*").order("name");
+    if(a.error)toast("Gagal memuat data",1);
+    people=a.data||[];pays=[];
+  }
+  render();
+}
+function render(){
+  const q=$("#q").value.toLowerCase();
+  const tot=people.reduce((a,p)=>a+p.paid,0),need=people.length*CFG.price,pct=need?Math.min(100,Math.round(tot/need*100)):0;
+  $("#sN").textContent=people.length;$("#sIn").textContent=rp(tot);$("#sOut").textContent=rp(Math.max(0,need-tot));
+  $("#sPct").textContent=pct+"%";$("#sBar").style.width=pct+"%";
+  $("#tb").innerHTML=people.filter(p=>p.name.toLowerCase().includes(q)).map((p,i)=>{
+    const st=p.paid>=CFG.price?["t-ok","Lunas"]:p.paid>0?["t-part","Cicil"]:["t-no","Belum"];
+    return `<tr><td>${i+1}</td><td><b>${esc(p.name)}</b></td><td class="adm">${esc(p.phone||"-")}</td><td>${rp(p.paid)}</td><td>${rp(Math.max(0,CFG.price-p.paid))}</td><td><span class="tag ${st[0]}">${st[1]}</span></td><td class="adm"><button class="btn sm ghost" data-add="${p.id}">+ Bayar</button> <button class="btn sm ghost" data-delp="${p.id}">Hapus</button></td></tr>`}).join("")||`<tr><td colspan="7">Belum ada peserta.</td></tr>`;
+  const nm=id=>(people.find(p=>p.id==id)||{}).name||"-";
+  $("#pb").innerHTML=pays.map(y=>`<tr><td>${new Date(y.created_at).toLocaleDateString("id-ID")}</td><td>${esc(nm(y.participant_id))}</td><td>${rp(y.amount)}</td><td>${esc(y.method)}</td><td><span class="tag ${y.status=="confirmed"?"t-ok":"t-part"}">${y.status=="confirmed"?"Terkonfirmasi":"Menunggu"}</span></td><td>${y.status=="pending"?`<button class="btn sm" data-ok="${y.id}">Konfirmasi</button> `:""}<button class="btn sm ghost" data-edit="${y.id}">Ubah</button> <button class="btn sm ghost" data-dely="${y.id}">Hapus</button></td></tr>`).join("")||`<tr><td colspan="6">Belum ada pembayaran.</td></tr>`;
+  const cur=$("#fP").value;
+  $("#fP").innerHTML=people.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join("");
+  if(cur)$("#fP").value=cur;
+}
+function renderPay(){
+  $("#pm").innerHTML=Object.entries(CFG.methods).map(([k,v])=>`<button class="${k==method?"on":""}" data-m="${k}">${v.ico} ${k}<small>${v.note}</small></button>`).join("");
+  $("#fM").value=method;const v=CFG.methods[method];let h;
+  if(v.qr)h=`<img src="qris.jpeg" alt="QRIS" onerror="this.outerHTML='<p class=sub>Taruh file <b>qris.png</b> (QRIS asli panitia) di folder yang sama dengan index.html.</p>'"><p class="sub" style="margin:10px 0">Scan dengan e-wallet / m-banking apa pun.</p>`;
+  else h=`<p class="sub" style="margin:0">Transfer ke ${method}</p><div class="acc">${v.no}</div><p class="sub" style="margin:0 0 12px">${v.an}</p><button class="btn sm" id="cp">Salin nomor</button>`;
+  $("#payBox").innerHTML=h+`<ol style="margin-top:16px"><li>Pilih nama &amp; nominal di form.</li><li>Bayar via ${method}.</li><li>Tekan “Kirim Konfirmasi”, lalu kirim bukti ke WhatsApp.</li></ol>`;
+  const cp=$("#cp");if(cp)cp.onclick=()=>{try{navigator.clipboard.writeText(v.no.replace(/-/g,""));toast("Nomor disalin")}catch(e){toast("Salin manual: "+v.no)}};
+}
+const need=()=>{if(!sb){toast("Supabase belum dikonfigurasi",1);return false}return true};
+const fail=r=>{if(r.error){toast("Gagal: "+r.error.message,1);return true}return false};
+
+document.addEventListener("click",async e=>{
+  const d=e.target.dataset;
+  if(d.m){method=d.m;renderPay()}
+  if(d.add){const amt=parseInt(prompt("Nominal pembayaran (Rp):",CFG.price),10);if(!amt||amt<1)return;
+    const r=await sb.from("payments").insert({participant_id:d.add,amount:amt,method:"Tunai/Manual",status:"confirmed"});if(!fail(r)){toast("Pembayaran dicatat");load()}}
+  if(d.delp&&confirm("Hapus peserta beserta semua pembayarannya?")){const r=await sb.from("participants").delete().eq("id",d.delp);if(!fail(r)){toast("Peserta dihapus");load()}}
+  if(d.ok){const r=await sb.from("payments").update({status:"confirmed"}).eq("id",d.ok);if(!fail(r)){toast("Dikonfirmasi");load()}}
+  if(d.edit){const y=pays.find(x=>x.id==d.edit),a=parseInt(prompt("Nominal baru (Rp):",y.amount),10);if(!a||a<1)return;
+    const r=await sb.from("payments").update({amount:a}).eq("id",d.edit);if(!fail(r)){toast("Nominal diubah");load()}}
+  if(d.dely&&confirm("Hapus pembayaran ini?")){const r=await sb.from("payments").delete().eq("id",d.dely);if(!fail(r)){toast("Pembayaran dihapus");load()}}
+});
+$("#q").oninput=render;
+$("#regBtn").onclick=async()=>{
+  if(!need())return;const n=(prompt("Nama lengkap:")||"").trim();if(n.length<2)return;
+  const ph=(prompt("No. WhatsApp:")||"").trim();
+  const r=await sb.from("participants").insert({name:n,phone:ph});if(!fail(r)){toast("Terdaftar! Silakan lanjut bayar");load()}
+};
+$("#fS").onclick=async()=>{
+  if(!need())return;const pid=$("#fP").value,a=parseInt($("#fA").value,10);
+  if(!pid||!a||a<1000){toast("Lengkapi nama & nominal",1);return}
+  const r=await sb.from("payments").insert({participant_id:pid,amount:a,method,status:"pending"});
+  if(fail(r))return;toast("Terkirim, menunggu konfirmasi admin");
+  const nm=(people.find(p=>p.id==pid)||{}).name||"";
+  window.open(`https://wa.me/${CFG.wa}?text=`+encodeURIComponent(`Halo panitia, saya ${nm} sudah bayar ${rp(a)} via ${method} untuk Pendakian Gede 27–28 Nov. Bukti terlampir.`),"_blank");
+  if(admin)load();
+};
+$("#loginLink").onclick=async e=>{e.preventDefault();if(!need())return;if(admin){if(confirm("Keluar dari admin?")){await sb.auth.signOut();load()}}else $("#dlg").showModal()};
+$("#cancelLogin").onclick=()=>$("#dlg").close();
+$("#outBtn").onclick=async()=>{await sb.auth.signOut();toast("Keluar");load()};
+$("#goLogin").onclick=async()=>{
+  const r=await sb.auth.signInWithPassword({email:$("#em").value.trim(),password:$("#pw").value});
+  if(fail(r))return;$("#dlg").close();$("#pw").value="";toast("Login berhasil");load();
+};
+$("#hPrice").textContent=rp(CFG.price);$("#fA").value=CFG.price;
+renderPay();load();
+</script>
+</body>
+</html>
